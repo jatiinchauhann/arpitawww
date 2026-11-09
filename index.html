@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Arpita! ✨</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Playfair+Display:ital,wght@0,600;1,400&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            roseGold: '#B76E79',
+            softPink: '#FFF0F5',
+            blushPink: '#FFD1DC',
+            pastelPurple: '#E6E6FA',
+            warmCream: '#FFFDF9',
+            deepRose: '#D87093',
+            goldAccent: '#F4C430'
+          },
+          fontFamily: {
+            handwriting: ['"Dancing Script"', 'cursive'],
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Quicksand"', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FFF0F5;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #FFB6C1;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #D87093;
+    }
+
+    
+    @keyframes floatUp {
+      0% {
+        transform: translateY(105vh) scale(0.6) rotate(0deg);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.1) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    .floating-particle {
+      position: fixed;
+      pointer-events: none;
+      z-index: 0;
+      animation: floatUp linear infinite;
+    }
+
+    
+    .glass-card {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 10px 30px rgba(216, 112, 147, 0.12);
+    }
+
+    
+    .polaroid {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .polaroid:hover {
+      transform: translateY(-10px) rotate(1deg) scale(1.03);
+      box-shadow: 0 20px 25px -5px rgba(216, 112, 147, 0.25), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    
+    @keyframes flicker {
+      0%, 100% { transform: scale(1) rotate(-2deg); opacity: 0.9; }
+      25% { transform: scale(1.1) rotate(2deg); opacity: 1; }
+      50% { transform: scale(0.95) rotate(-1deg); opacity: 0.8; }
+      75% { transform: scale(1.05) rotate(1deg); opacity: 1; }
+    }
+
+    .flame {
+      animation: flicker 1.2s infinite ease-in-out;
+      transform-origin: center bottom;
+      filter: drop-shadow(0 0 8px rgba(255, 180, 0, 0.8));
+    }
+
+    
+    @keyframes pulseGlow {
+      0%, 100% { filter: drop-shadow(0 0 15px rgba(255, 182, 193, 0.6)); }
+      50% { filter: drop-shadow(0 0 25px rgba(216, 112, 147, 0.9)); }
+    }
+    .glow-effect {
+      animation: pulseGlow 3s infinite ease-in-out;
+    }
+
+    
+    #wheel {
+      transition: transform 4s cubic-bezier(0.15, 0.99, 0.35, 1);
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-softPink via-warmCream to-pastelPurple min-h-screen font-sans text-gray-700 relative overflow-x-hidden selection:bg-blushPink">
+
+  <audio id="backgroundMusic" src="she.mp3" autoplay loop preload="auto"></audio>
+
+  
+  <div id="particles-container" class="fixed inset-0 pointer-events-none z-0"></div>
+
+  
+  <header class="relative z-10 pt-16 pb-12 text-center px-4 max-w-4xl mx-auto">
+    <div class="inline-block mb-3 px-4 py-1.5 rounded-full bg-white/80 border border-blushPink shadow-sm text-xs md:text-sm font-medium text-deepRose uppercase tracking-widest">
+      ✨ Celebrating A Very Special Person ✨
+    </div>
+    
+    <h1 class="font-serif text-5xl md:text-7xl font-bold text-gray-800 tracking-tight mb-3">
+      Happy Birthday, <span class="font-handwriting text-deepRose text-6xl md:text-8xl block md:inline mt-2 md:mt-0 glow-effect">Arpita!</span> 🌸
+    </h1>
+    
+    <p class="text-base md:text-xl text-gray-600 font-medium max-w-2xl mx-auto leading-relaxed mt-4">
+      To the brightest light, the sweetest laugh, and the sparkliest soul in my world—today is all about celebrating <span class="text-deepRose font-semibold">YOU</span>!
+    </p>
+
+    
+    <div class="mt-6 inline-flex items-center gap-2 bg-white/90 px-5 py-2 rounded-2xl shadow-sm border border-blushPink/50 text-roseGold font-semibold text-sm">
+      <i class="fa-regular fa-calendar-star text-base"></i>
+      <span>24th November / 01:40 AM ⭐️</span>
+    </div>
+  </header>
+
+  
+  <section class="relative z-10 max-w-3xl mx-auto px-4 mb-16">
+    <div class="glass-card rounded-3xl p-6 md:p-8 text-center relative overflow-hidden">
+      <div class="absolute -top-10 -right-10 w-32 h-32 bg-blushPink/30 rounded-full blur-2xl"></div>
+      <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-pastelPurple/40 rounded-full blur-2xl"></div>
+
+      <h2 id="countdownHeading" class="font-serif text-xl md:text-2xl text-gray-800 font-semibold mb-6 flex items-center justify-center gap-2">
+        <i class="fa-solid fa-hourglass-half text-roseGold"></i> Countdown to Arpita's Big Day
+      </h2>
+
+      <div class="grid grid-cols-4 gap-2 md:gap-6 max-w-md mx-auto" id="timerGrid">
+        <div class="bg-white/80 rounded-2xl p-3 md:p-4 shadow-sm border border-pink-100 flex flex-col items-center">
+          <span id="days" class="font-serif text-2xl md:text-4xl font-bold text-deepRose">00</span>
+          <span class="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 font-medium mt-1">Days</span>
+        </div>
+        <div class="bg-white/80 rounded-2xl p-3 md:p-4 shadow-sm border border-pink-100 flex flex-col items-center">
+          <span id="hours" class="font-serif text-2xl md:text-4xl font-bold text-deepRose">00</span>
+          <span class="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 font-medium mt-1">Hours</span>
+        </div>
+        <div class="bg-white/80 rounded-2xl p-3 md:p-4 shadow-sm border border-pink-100 flex flex-col items-center">
+          <span id="minutes" class="font-serif text-2xl md:text-4xl font-bold text-deepRose">00</span>
+          <span class="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 font-medium mt-1">Mins</span>
+        </div>
+        <div class="bg-white/80 rounded-2xl p-3 md:p-4 shadow-sm border border-pink-100 flex flex-col items-center">
+          <span id="seconds" class="font-serif text-2xl md:text-4xl font-bold text-deepRose">00</span>
+          <span class="text-[10px] md:text-xs uppercase tracking-wider text-gray-500 font-medium mt-1">Secs</span>
+        </div>
+      </div>
+
+      <div id="birthdayMessageBanner" class="hidden text-center py-4">
+        <p class="font-handwriting text-3xl md:text-4xl text-deepRose font-bold animate-pulse">
+          🎉 Today is the day! Happy Birthday Arpita! 🎉
+        </p>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="relative z-10 max-w-4xl mx-auto px-4 mb-20 text-center">
+    <div class="glass-card rounded-3xl p-8 md:p-12 relative">
+      <h2 class="font-serif text-2xl md:text-3xl text-gray-800 font-bold mb-2">
+        Make a Wish & Blow Out the Candles! 🎂
+      </h2>
+      <p class="text-sm md:text-base text-gray-600 mb-8 max-w-md mx-auto">
+        Click on the flames or use the button below to blow out Arpita's birthday candles!
+      </p>
+
+      
+      <div class="relative w-64 h-64 mx-auto flex flex-col items-center justify-end">
+        
+        
+        <div class="flex justify-center items-end gap-6 mb-[-2px] z-20">
+          
+          <div class="candle cursor-pointer flex flex-col items-center group" onclick="toggleCandle(0)">
+            <div id="flame-0" class="flame w-4 h-6 bg-gradient-to-t from-yellow-500 via-orange-400 to-amber-200 rounded-full mb-1"></div>
+            <div class="w-3 h-12 bg-gradient-to-r from-pink-300 via-white to-pink-300 rounded-t-sm shadow-inner"></div>
+          </div>
+          
+          <div class="candle cursor-pointer flex flex-col items-center group -translate-y-2" onclick="toggleCandle(1)">
+            <div id="flame-1" class="flame w-4 h-6 bg-gradient-to-t from-yellow-500 via-orange-400 to-amber-200 rounded-full mb-1"></div>
+            <div class="w-3.5 h-14 bg-gradient-to-r from-purple-300 via-white to-purple-300 rounded-t-sm shadow-inner"></div>
+          </div>
+          
+          <div class="candle cursor-pointer flex flex-col items-center group" onclick="toggleCandle(2)">
+            <div id="flame-2" class="flame w-4 h-6 bg-gradient-to-t from-yellow-500 via-orange-400 to-amber-200 rounded-full mb-1"></div>
+            <div class="w-3 h-12 bg-gradient-to-r from-pink-300 via-white to-pink-300 rounded-t-sm shadow-inner"></div>
+          </div>
+        </div>
+
+        
+        <div class="w-44 h-16 bg-gradient-to-r from-pink-200 via-pink-100 to-pink-200 rounded-t-2xl shadow-md border-b-4 border-pink-300 relative z-10 flex justify-around items-start pt-1 overflow-hidden">
+          <div class="w-6 h-6 bg-white rounded-full -mt-3 shadow-inner"></div>
+          <div class="w-6 h-6 bg-white rounded-full -mt-2 shadow-inner"></div>
+          <div class="w-6 h-6 bg-white rounded-full -mt-3 shadow-inner"></div>
+          <div class="w-6 h-6 bg-white rounded-full -mt-2 shadow-inner"></div>
+        </div>
+
+        
+        <div class="w-56 h-20 bg-gradient-to-r from-rose-200 via-pink-100 to-rose-200 rounded-t-xl shadow-lg relative z-0 flex justify-around items-start pt-1 overflow-hidden">
+          <div class="w-8 h-8 bg-pink-300/40 rounded-full -mt-4"></div>
+          <div class="w-8 h-8 bg-pink-300/40 rounded-full -mt-2"></div>
+          <div class="w-8 h-8 bg-pink-300/40 rounded-full -mt-4"></div>
+        </div>
+
+        
+        <div class="w-64 h-4 bg-gradient-to-r from-gray-200 via-white to-gray-300 rounded-full shadow-md z-0"></div>
+      </div>
+
+      
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <button onclick="blowOutCandles()" class="bg-gradient-to-r from-roseGold to-deepRose text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-rose-300/50 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-wind"></i> Blow Candles
+        </button>
+        <button onclick="relightCandles()" class="bg-white text-roseGold border border-blushPink px-6 py-3 rounded-full font-semibold shadow-md hover:bg-softPink hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-fire"></i> Relight Candles
+        </button>
+        <button onclick="triggerConfetti()" class="bg-gradient-to-r from-amber-400 to-yellow-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg hover:shadow-yellow-300/50 hover:scale-105 active:scale-95 transition-all flex items-center gap-2">
+          <i class="fa-solid fa-party-horn"></i> Celebrate! 🎉
+        </button>
+      </div>
+    </div>
+  </section>
+
+  
+  <section class="relative z-10 max-w-5xl mx-auto px-4 mb-20">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-roseGold bg-white/80 px-4 py-1.5 rounded-full border border-pink-100">Little Secret Messages</span>
+      <h2 class="font-serif text-3xl md:text-4xl text-gray-800 font-bold mt-3">Cute Notes for Arpita 💌</h2>
+      <p class="text-gray-600 text-sm md:text-base mt-2">Tap on any envelope to unseal and read a warm note written just for you.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      
+      <div class="glass-card rounded-3xl p-6 flex flex-col items-center justify-between hover:border-pink-300 transition-all cursor-pointer group" onclick="toggleEnvelope(this)">
+        <div class="w-full flex justify-between items-center mb-4">
+          <span class="text-xs font-semibold px-3 py-1 bg-pink-100 text-deepRose rounded-full">Note #1</span>
+          <i class="fa-solid fa-heart text-pink-300 group-hover:text-deepRose transition-colors"></i>
+        </div>
+        <div class="my-6 text-center">
+          <div class="w-16 h-16 bg-pink-100 text-deepRose rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-inner group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-envelope-open-text"></i>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-gray-800">Your Pure Sunshine ☀️</h3>
+        </div>
+        <div class="hidden-content hidden text-gray-600 text-sm leading-relaxed text-center bg-white/90 p-4 rounded-2xl border border-pink-100 mb-4 animate-fade-in">
+          "Thank you for being in my life and it matters a lot to me 🫶 . You are my unpaid therapist and comfort zone 🤗 . I always feel happy when you are around me and the way you make me feel I can't even explain it. Never think for others what they say just try to ignore them and never let them bring you down. Whenever you need me just come to me, I will always be there for you ♾️ ."
+        </div>
+        <button class="text-xs font-bold text-roseGold uppercase tracking-wider group-hover:underline flex items-center gap-1">
+          <span>Tap to Read</span> <i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </button>
+      </div>
+
+      
+      <div class="glass-card rounded-3xl p-6 flex flex-col items-center justify-between hover:border-pink-300 transition-all cursor-pointer group" onclick="toggleEnvelope(this)">
+        <div class="w-full flex justify-between items-center mb-4">
+          <span class="text-xs font-semibold px-3 py-1 bg-purple-100 text-purple-600 rounded-full">Note #2</span>
+          <i class="fa-solid fa-sparkles text-purple-300 group-hover:text-purple-600 transition-colors"></i>
+        </div>
+        <div class="my-6 text-center">
+          <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-inner group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-gem"></i>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-gray-800">One in a Million 💎</h3>
+        </div>
+        <div class="hidden-content hidden text-gray-600 text-sm leading-relaxed text-center bg-white/90 p-4 rounded-2xl border border-purple-100 mb-4 animate-fade-in">
+          "Having you as this much close is truly one of the biggest blessings 🥹 . You are chotuuu bcchu 😗 , lil bby 👉👈 , unique, cute, majestic, charming, loyal, and completely irreplaceable. You are the only person with whom I wanna be with forever ♾️ , no searching for others because no one could ever be you. You are you Arpita no one can compete with you even if they try to be you.Always remember you are my 1:40 AM ⭐️ forever."
+        </div>
+        <button class="text-xs font-bold text-roseGold uppercase tracking-wider group-hover:underline flex items-center gap-1">
+          <span>Tap to Read</span> <i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </button>
+      </div>
+
+      
+      <div class="glass-card rounded-3xl p-6 flex flex-col items-center justify-between hover:border-pink-300 transition-all cursor-pointer group" onclick="toggleEnvelope(this)">
+        <div class="w-full flex justify-between items-center mb-4">
+          <span class="text-xs font-semibold px-3 py-1 bg-rose-100 text-rose-600 rounded-full">Note #3</span>
+          <i class="fa-solid fa-star text-rose-300 group-hover:text-rose-600 transition-colors"></i>
+        </div>
+        <div class="my-6 text-center">
+          <div class="w-16 h-16 bg-rose-100 text-rose-600 rounded-2xl flex items-center justify-center mx-auto mb-4 text-2xl shadow-inner group-hover:scale-110 transition-transform">
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+          </div>
+          <h3 class="font-serif text-lg font-bold text-gray-800">Endless Smiles 🌸</h3>
+        </div>
+        <div class="hidden-content hidden text-gray-600 text-sm leading-relaxed text-center bg-white/90 p-4 rounded-2xl border border-rose-100 mb-4 animate-fade-in">
+          "May this birthday bring you joy, warmth, and magic. May this prettiest girl be happy for the rest of her life with all the love  🥰 and support she deserves. Keep shining! May your smile always shine bright, your heart always stay happy, and every dream of yours come true. Keep smiling, keep glowing, and keep spreading happiness wherever you go. 💖🎂✨"
+        </div>
+        <button class="text-xs font-bold text-roseGold uppercase tracking-wider group-hover:underline flex items-center gap-1">
+          <span>Tap to Read</span> <i class="fa-solid fa-chevron-down text-[10px]"></i>
+        </button>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section class="relative z-10 max-w-5xl mx-auto px-4 mb-20">
+    <div class="text-center mb-12">
+      <span class="text-xs font-bold uppercase tracking-widest text-roseGold bg-white/80 px-4 py-1.5 rounded-full border border-pink-100">Precious Snapshots</span>
+      <h2 class="font-serif text-3xl md:text-4xl text-gray-800 font-bold mt-3">Cutest Girl Forever✨ </h2>
+      <p class="text-gray-600 text-sm md:text-base mt-2">Moments of joy, laughter, and unforgettable memories.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      
+      <div class="polaroid bg-white p-4 pb-6 rounded-2xl shadow-md border border-pink-100 -rotate-2">
+        <div class="h-64 bg-pink-100 rounded-xl overflow-hidden relative group flex items-center justify-center">
+         
+          <img src="23.jpg" alt="Arpita Photo 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-medium">✨ Joyful Celebrations</span>
+          </div>
+        </div>
+        <p class="font-handwriting text-center text-xl text-gray-700 mt-4 font-bold">Little Moments of Joy ✨</p>
+      </div>
+
+      
+      <div class="polaroid bg-white p-4 pb-6 rounded-2xl shadow-md border border-pink-100 rotate-2">
+        <div class="h-64 bg-purple-100 rounded-xl overflow-hidden relative group flex items-center justify-center">
+          
+          <img src="24.jpg" alt="Arpita Photo 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-medium">🎉 Festivities & Fun</span>
+          </div>
+        </div>
+        <p class="font-handwriting text-center text-xl text-gray-700 mt-4 font-bold">Frozen in My Favourite Memory 💖</p>
+      </div>
+
+      
+      <div class="polaroid bg-white p-4 pb-6 rounded-2xl shadow-md border border-pink-100 -rotate-1 sm:col-span-2 lg:col-span-1">
+        <div class="h-64 bg-rose-100 rounded-xl overflow-hidden relative group flex items-center justify-center">
+          
+          <img src="27.jpeg" alt="Arpita Photo 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-medium">🌸 Sweetest Moments</span>
+          </div>
+        </div>
+        <p class="font-handwriting text-center text-xl text-gray-700 mt-4 font-bold">Happiness in Her Eyes 🌸</p>
+      </div>
+
+      
+      <div class="polaroid bg-white p-4 pb-6 rounded-2xl shadow-md border border-pink-100 -rotate-1 sm:col-span-2 lg:col-span-1">
+        <div class="h-64 bg-rose-100 rounded-xl overflow-hidden relative group flex items-center justify-center">
+          
+          <img src="28.jpeg" alt="Arpita Photo 4" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-medium">🌻 Magical moments</span>
+          </div>
+        </div>
+        <p class="font-handwriting text-center text-xl text-gray-700 mt-4 font-bold">Another Lovely
+Memory 💕</p>
+      </div>
+
+      
+      <div class="polaroid bg-white p-4 pb-6 rounded-2xl shadow-md border border-pink-100 -rotate-1 sm:col-span-2 lg:col-span-1">
+        <div class="h-64 bg-rose-100 rounded-xl overflow-hidden relative group flex items-center justify-center">
+          
+          <img src="26.jpeg" alt="Arpita Photo 5" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-medium">🥹 Shining Brightly</span>
+          </div>
+        </div>
+        <p class="font-handwriting text-center text-xl text-gray-700 mt-4 font-bold">Smile to remember 💫</p>
+      </div>
+
+      <!-- Polaroid Item 6 -->
+      <div class="polaroidhttps://github.com/jatiinchauhann/Arpitawwww/blob/main/23.jpeg?raw=true bg-white p-4 pb-6 rounded-2xl shadow-md border border-pink-100 -rotate-1 sm:col-span-2 lg:col-span-1">
+        <div class="h-64 bg-rose-100 rounded-xl overflow-hidden relative group flex items-center justify-center">
+          
+          <img src="12.jpg" alt="Arpita Photo 6" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+            <span class="text-white text-xs font-medium">💕 Cherished Moments</span>
+          </div>
+        </div>
+        <p class="font-handwriting text-center text-xl text-gray-700 mt-4 font-bold">A Little more Magic ✨</p>
+      </div>
+
+    </div>
+  </section>
+
+  
+  <section class="relative z-10 max-w-4xl mx-auto px-4 mb-20">
+    <div class="glass-card rounded-3xl p-8 md:p-12 text-center">
+      <span class="text-xs font-bold uppercase tracking-widest text-roseGold bg-white/80 px-4 py-1.5 rounded-full border border-pink-100">Interactive Fun</span>
+      <h2 class="font-serif text-3xl text-gray-800 font-bold mt-3 mb-2">Spin for a Compliment! 🎡</h2>
+      <p class="text-gray-600 text-sm md:text-base mb-8">Tap the wheel to uncover a randomized cute compliment for Arpita.</p>
+
+      <div class="relative w-64 h-64 md:w-80 md:h-80 mx-auto mb-8 flex items-center justify-center">
+        
+        <div class="absolute -top-3 left-1/2 -translate-x-1/2 z-20 text-deepRose text-2xl filter drop-shadow">
+          <i class="fa-solid fa-location-pin fa-rotate-180"></i>
+        </div>
+
+        
+        <div id="wheel" class="w-full h-full rounded-full border-4 border-white shadow-xl overflow-hidden bg-gradient-to-tr from-pink-200 via-rose-100 to-purple-200 relative flex items-center justify-center">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="w-20 h-20 bg-white rounded-full shadow-md z-10 flex items-center justify-center">
+              <i class="fa-solid fa-gift text-2xl text-deepRose"></i>
+            </div>
+          </div>
+          
+          <div class="w-full h-0.5 bg-white/60 absolute rotate-0"></div>
+          <div class="w-full h-0.5 bg-white/60 absolute rotate-45"></div>
+          <div class="w-full h-0.5 bg-white/60 absolute rotate-90"></div>
+          <div class="w-full h-0.5 bg-white/60 absolute rotate-135"></div>
+        </div>
+      </div>
+
+     
+      <div id="complimentResult" class="min-h-[80px] bg-white/90 p-5 rounded-2xl border border-pink-100 max-w-lg mx-auto flex items-center justify-center shadow-inner mb-6">
+        <p id="complimentText" class="font-serif text-lg text-deepRose italic font-medium">
+          "Click the button below to spin for a sweet compliment!"
+        </p>
+      </div>
+
+      <button id="spinBtn" onclick="spinWheel()" class="bg-gradient-to-r from-deepRose to-roseGold text-white px-8 py-3.5 rounded-full font-bold shadow-lg hover:shadow-pink-300/50 hover:scale-105 active:scale-95 transition-all flex items-center gap-2 mx-auto">
+        <i class="fa-solid fa-arrows-spin"></i> Spin the Wheel!
+      </button>
+    </div>
+  </section>
+
+  <!-- Heartfelt Personal Message Section -->
+  <section class="relative z-10 max-w-3xl mx-auto px-4 mb-20">
+    <div class="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden border-2 border-pink-200/50">
+      <div class="absolute top-0 right-0 p-8 opacity-10 text-deepRose text-9xl pointer-events-none">
+        <i class="fa-solid fa-quote-right"></i>
+      </div>
+
+      <h2 class="font-serif text-3xl text-gray-800 font-bold mb-6 text-center">
+        A Heartfelt Wish for You ✨
+      </h2>
+
+      <div class="space-y-4 text-gray-700 leading-relaxed font-sans text-base md:text-lg">
+        <p>
+          Dearest <span class="font-semibold text-deepRose">Arpita</span>,
+        </p>
+        <p>
+          On your special day, November 24th, I want to take a moment to remind you of how genuinely amazing you are. You bring warmth, positivity, and infectious laughter into the lives of everyone around you.
+        </p>
+        <p>
+          May this coming year be filled with dream-come-true moments, limitless happiness, good health, and incredible achievements. Never stop being the wonderfully unique, kind-hearted soul that you are.
+        </p>
+        <p class="font-handwriting text-3xl text-deepRose pt-4 text-right">
+          With endless love & warmth, ❤️
+        </p>
+      </div>
+    </div>
+  </section>
+
+  
+  <footer class="relative z-10 text-center py-8 text-gray-500 text-xs md:text-sm border-t border-pink-100 bg-white/40 backdrop-blur-sm">
+    <p>Lots of ❤️  <span class="font-semibold text-deepRose">Arpita</span> 🌸</p>
+  </footer>
+
+  
+  <script>
+    
+    function createFloatingParticles() {
+      const container = document.getElementById('particles-container');
+      const icons = ['✨', '💖', '🌸', '⭐', '🎈', '💕', '🌷'];
+      const particleCount = 20;
+
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'floating-particle';
+        particle.innerText = icons[Math.floor(Math.random() * icons.length)];
+        particle.style.left = `${Math.random() * 100}vw`;
+        particle.style.animationDuration = `${8 + Math.random() * 12}s`;
+        particle.style.animationDelay = `${Math.random() * 5}s`;
+        particle.style.fontSize = `${14 + Math.random() * 16}px`;
+        container.appendChild(particle);
+      }
+    }
+
+    
+    function updateCountdown() {
+      const now = new Date();
+      let currentYear = now.getFullYear();
+      let birthday = new Date(currentYear, 10, 24); // Month is 0-indexed: 10 = Nov
+
+      if (now > birthday && now.getDate() !== 24) {
+        birthday = new Date(currentYear + 1, 10, 24);
+      }
+
+      const diff = birthday - now;
+
+      if (now.getMonth() === 10 && now.getDate() === 24) {
+        document.getElementById('timerGrid').classList.add('hidden');
+        document.getElementById('birthdayMessageBanner').classList.remove('hidden');
+        document.getElementById('countdownHeading').innerText = "🎉 Happy Birthday Arpita! 🎉";
+        return;
+      }
+
+      const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById('days').innerText = String(d).padStart(2, '0');
+      document.getElementById('hours').innerText = String(h).padStart(2, '0');
+      document.getElementById('minutes').innerText = String(m).padStart(2, '0');
+      document.getElementById('seconds').innerText = String(s).padStart(2, '0');
+    }
+
+    
+    function toggleEnvelope(cardElement) {
+      const hiddenContent = cardElement.querySelector('.hidden-content');
+      const icon = cardElement.querySelector('i.fa-chevron-down');
+      
+      if (hiddenContent.classList.contains('hidden')) {
+        hiddenContent.classList.remove('hidden');
+        if (icon) icon.classList.add('rotate-180');
+        playChimeSound(600);
+      } else {
+        hiddenContent.classList.add('hidden');
+        if (icon) icon.classList.remove('rotate-180');
+      }
+    }
+
+    
+    let candleStates = [true, true, true];
+
+    function toggleCandle(index) {
+      const flame = document.getElementById(`flame-${index}`);
+      candleStates[index] = !candleStates[index];
+      
+      if (candleStates[index]) {
+        flame.classList.remove('hidden');
+        playChimeSound(700);
+      } else {
+        flame.classList.add('hidden');
+        playChimeSound(300);
+      }
+
+      checkAllCandlesBlown();
+    }
+
+    function blowOutCandles() {
+      for (let i = 0; i < 3; i++) {
+        candleStates[i] = false;
+        document.getElementById(`flame-${i}`).classList.add('hidden');
+      }
+      playChimeSound(300);
+      triggerConfetti();
+    }
+
+    function relightCandles() {
+      for (let i = 0; i < 3; i++) {
+        candleStates[i] = true;
+        document.getElementById(`flame-${i}`).classList.remove('hidden');
+      }
+      playChimeSound(800);
+    }
+
+    function checkAllCandlesBlown() {
+      const allBlown = candleStates.every(state => state === false);
+      if (allBlown) {
+        setTimeout(() => {
+          triggerConfetti();
+        }, 300);
+      }
+    }
+
+    
+    function triggerConfetti() {
+      if (typeof confetti === 'function') {
+        confetti({
+          particleCount: 100,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#FFB6C1', '#FFD1DC', '#E6E6FA', '#F4C430', '#D87093']
+        });
+      }
+    }
+
+    
+    let audioCtx = null;
+
+    function playChimeSound(freq = 587.33) {
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+        
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 1.2);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start();
+        osc.stop(audioCtx.currentTime + 1.2);
+      } catch (e) {
+        
+      }
+    }
+
+    const backgroundMusic = document.getElementById('backgroundMusic');
+
+    function retryBackgroundMusic() {
+      document.removeEventListener('pointerdown', retryBackgroundMusic);
+      document.removeEventListener('keydown', retryBackgroundMusic);
+      startBackgroundMusic();
+    }
+
+    function startBackgroundMusic() {
+      backgroundMusic.play().catch(error => {
+        if (error.name === 'NotAllowedError') {
+          document.addEventListener('pointerdown', retryBackgroundMusic, { once: true });
+          document.addEventListener('keydown', retryBackgroundMusic, { once: true });
+          return;
+        }
+        console.error('Unable to play background music:', error);
+      });
+    }
+
+    
+    const compliments = [
+      "Arpita, your infectious laugh is literally the best mood booster ever! ✨",
+      "You have the rare gift of making everyone around you feel valued and special. 💖",
+      "Your style, elegance, and charm are absolutely effortless! 🌸",
+      "You are proof that pure kindness and genuine intelligence can coexist so beautifully. 💎",
+      "Thank you for always being the most reliable, caring, and loyal friend! 🌟",
+      "Your positive vibe is like a cozy sunny day in the middle of winter! ☀️",
+      "Arpita, the world is genuinely a happier place with you in it! 🎉"
+    ];
+
+    let currentRotation = 0;
+
+    function spinWheel() {
+      const spinBtn = document.getElementById('spinBtn');
+      const wheel = document.getElementById('wheel');
+      const textElem = document.getElementById('complimentText');
+
+      spinBtn.disabled = true;
+      textElem.innerText = "Spinning magic for Arpita...";
+
+      const randomDeg = Math.floor(1800 + Math.random() * 360);
+      currentRotation += randomDeg;
+      wheel.style.transform = `rotate(${currentRotation}deg)`;
+
+      playChimeSound(500);
+
+      setTimeout(() => {
+        const randomIndex = Math.floor(Math.random() * compliments.length);
+        textElem.innerText = `"${compliments[randomIndex]}"`;
+        spinBtn.disabled = false;
+        triggerConfetti();
+      }, 4000);
+    }
+
+    
+    window.onload = () => {
+      createFloatingParticles();
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      startBackgroundMusic();
+    };
+  </script>
+</body>
+</html>
